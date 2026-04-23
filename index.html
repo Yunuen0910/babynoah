@@ -1,91 +1,94 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bautizo de Noah</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Tangerine:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
 <body>
-
-    <div id="intro-sobre" class="intro-sobre" onclick="openEnvelope();">
-        <div class="sobre-contenido">
-            <img src="img/DINO_PRINCIPAL.png" class="dino-sello" alt="Sello Noah">
-            <p>Toca para abrir</p>
-            <div class="pulso"></div>
+    <div id="cover" class="cover">
+        <div class="cover-content">
+            <p class="subtitulo-caps">Nos complace Invitarte al Bautizo de</p>
+            <h1>Noah</h1>
+            <button onclick="abrirInvitacion()">Abrir Invitación</button>
         </div>
+        <img src="img/DINO_PRINCIPAL.png" alt="Dino Noah" class="dino-principal">
     </div>
 
     <audio id="musica" loop>
         <source src="img/Estrellita.mp3" type="audio/mpeg">
     </audio>
-    <button id="btnMusica" class="btn-musica" onclick="toggleMusica()">
-        <i id="icono-musica" class="fas fa-pause"></i>
-    </button>
 
-    <div id="main-content" class="hide">
+    <div id="contenido" style="display:none;">
         
-        <header class="hero">
-            <h1 class="tangerine">Noah</h1>
-            <p class="subtitulo">MI BAUTIZO Y PRIMER AÑO</p>
-            
-            <div id="timer" class="contador-grid"></div>
-            <p class="fecha-boda">16 DE JUNIO DE 2026</p>
-        </header>
-
-        <section class="seccion-blanca">
-            <div class="frame-nombres">
-                <div class="box-tit">Padres</div>
-                <div class="nombres">Miguel De Jésus Trigueros<br>Bellkies Garcia</div>
-                
-                <div class="box-tit mt20">Padrinos</div>
-                <div class="nombres">Nombre del Padrino<br>Nombre de la Madrina</div>
+        <section class="animar seccion-bienvenida">
+            <div class="card">
+                <h2>Mi Bautizo & Primer Año</h2>
+                <div class="detalle"></div>
+                <p>Con la alegría de mi primer año de vida...</p>
+                <p style="font-style: italic; margin: 15px 0;">Hoy celebro la dicha de existir...</p>
+                <div id="cuenta"></div> 
+                <p id="fecha-texto"></p>
             </div>
         </section>
 
-        <section class="itinerario">
-            <div class="itinerario-item">
-                <img src="img/iglesia.png" class="icon-it">
-                <h3>Ceremonia Religiosa</h3>
-                <span class="hora">1:00 PM</span>
-                <p>Capilla San José</p>
-                <a href="#" class="btn-locacion">VER UBICACIÓN</a>
-            </div>
-
-            <div class="itinerario-item mt40">
-                <img src="img/fiesta.png" class="icon-it">
-                <h3>Recepción</h3>
-                <span class="hora">4:30 PM</span>
-                <p>Baraka Beach Club</p>
-                <a href="#" class="btn-locacion">VER UBICACIÓN</a>
-            </div>
-        </section>
-
-        <section class="detalles-grid">
-            <div class="tarjeta-detalle">
-                <img src="img/vestido-de-novia.png" class="icon-sm">
-                <h4>Vestimenta</h4>
-                <p>FORMAL</p>
-                <small>Evitar blanco y beige</small>
-            </div>
-            <div class="tarjeta-detalle">
-                <img src="img/fiesta.png" class="icon-sm">
-                <h4>Regalos</h4>
-                <a href="#" class="link-regalo">LIVERPOOL</a>
-                <a href="#" class="link-regalo">AMAZON</a>
+        <section class="animar seccion-familia">
+            <div class="card">
+                <div class="grid-familia">
+                    <div class="columna-familia">
+                        <h2>Mis Padres</h2>
+                        <div class="lista-nombres">
+                            <p>Miguel De Jésus Trigueros Garcia</p>
+                            <p>Bellkies Garcia</p>
+                        </div>
+                    </div>
+                    <div class="columna-familia">
+                        <h2>Mis Padrinos</h2>
+                        <div class="lista-nombres">
+                            <p>Nombre del Padrino</p>
+                            <p>Nombre de la Madrina</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="confirmacion">
-            <div class="divisor">🌿</div>
-            <p>¿Nos acompañas?</p>
-            <a href="https://wa.me/..." class="btn-rsvp">CONFIRMAR ASISTENCIA</a>
+        <section class="animar">
+            <div class="card">
+                <h2 class="titulo-cursivo">Itinerario</h2>
+                <div class="detalle"></div>
+                <div class="grid-familia"> 
+                    <div class="columna-familia">
+                        <img src="img/iglesia.png" style="width: 40px; margin-bottom: 10px;">
+                        <p><strong>12:00 PM</strong><br>Misa</p>
+                    </div>
+                    <div class="columna-familia">
+                        <img src="img/sombrero-de-fiesta.png" style="width: 40px; margin-bottom: 10px;">
+                        <p><strong>02:00 PM</strong><br>Recepción</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
+        <section class="animar">
+            <div class="card">
+                <div class="grid-familia">
+                    <div class="columna-familia">
+                        <img src="img/vestido-de-novia.png" style="width: 40px; margin-bottom: 10px;">
+                        <h3>Vestimenta</h3>
+                        <p><strong>FORMAL</strong></p>
+                        <p style="font-size: 0.8rem;">Evitar color blanco</p>
+                    </div>
+                    <div class="columna-familia">
+                        <img src="img/fiesta.png" style="width: 40px; margin-bottom: 10px;">
+                        <h3>Regalos</h3>
+                        <a href="#" class="btn-mapa" style="display:block; margin-bottom:5px;">AMAZON</a>
+                        <a href="#" class="btn-mapa" style="display:block;">LIVERPOOL</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="animar seccion-confirmacion">
+            <div class="card">
+                <h2>Asistencia</h2>
+                <a href="https://wa.me/TUNUMERO" target="_blank" class="btn-confirmar">Confirmar por WhatsApp</a>
+            </div>
+        </section>
     </div>
 
     <script src="script.js"></script>
 </body>
-</html>
