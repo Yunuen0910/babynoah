@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bautizo de Noah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Tangerine:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="intro-sobre" class="intro-sobre" onclick="openEnvelope();">
+        <div class="sobre-contenido">
+            <img src="img/DINO_PRINCIPAL.png" class="dino-sello" alt="Sello Noah">
+            <p>Toca para abrir</p>
+            <div class="pulso"></div>
+        </div>
+    </div>
+
+    <audio id="musica" loop>
+        <source src="img/Estrellita.mp3" type="audio/mpeg">
+    </audio>
+    <button id="btnMusica" class="btn-musica" onclick="toggleMusica()">
+        <i id="icono-musica" class="fas fa-pause"></i>
+    </button>
+
+    <div id="main-content" class="hide">
+        
+        <header class="hero">
+            <h1 class="tangerine">Noah</h1>
+            <p class="subtitulo">MI BAUTIZO Y PRIMER AÑO</p>
+            
+            <div id="timer" class="contador-grid"></div>
+            <p class="fecha-boda">16 DE JUNIO DE 2026</p>
+        </header>
+
+        <section class="seccion-blanca">
+            <div class="frame-nombres">
+                <div class="box-tit">Padres</div>
+                <div class="nombres">Miguel De Jésus Trigueros<br>Bellkies Garcia</div>
+                
+                <div class="box-tit mt20">Padrinos</div>
+                <div class="nombres">Nombre del Padrino<br>Nombre de la Madrina</div>
+            </div>
+        </section>
+
+        <section class="itinerario">
+            <div class="itinerario-item">
+                <img src="img/iglesia.png" class="icon-it">
+                <h3>Ceremonia Religiosa</h3>
+                <span class="hora">1:00 PM</span>
+                <p>Capilla San José</p>
+                <a href="#" class="btn-locacion">VER UBICACIÓN</a>
+            </div>
+
+            <div class="itinerario-item mt40">
+                <img src="img/fiesta.png" class="icon-it">
+                <h3>Recepción</h3>
+                <span class="hora">4:30 PM</span>
+                <p>Baraka Beach Club</p>
+                <a href="#" class="btn-locacion">VER UBICACIÓN</a>
+            </div>
+        </section>
+
+        <section class="detalles-grid">
+            <div class="tarjeta-detalle">
+                <img src="img/vestido-de-novia.png" class="icon-sm">
+                <h4>Vestimenta</h4>
+                <p>FORMAL</p>
+                <small>Evitar blanco y beige</small>
+            </div>
+            <div class="tarjeta-detalle">
+                <img src="img/fiesta.png" class="icon-sm">
+                <h4>Regalos</h4>
+                <a href="#" class="link-regalo">LIVERPOOL</a>
+                <a href="#" class="link-regalo">AMAZON</a>
+            </div>
+        </section>
+
+        <section class="confirmacion">
+            <div class="divisor">🌿</div>
+            <p>¿Nos acompañas?</p>
+            <a href="https://wa.me/..." class="btn-rsvp">CONFIRMAR ASISTENCIA</a>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
