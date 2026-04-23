@@ -1,40 +1,75 @@
-function openEnvelope() {
-    document.getElementById('intro-sobre').style.display = 'none';
-    document.getElementById('main-content').classList.remove('hide');
-    document.getElementById('main-content').classList.add('show');
-    
-    let audio = document.getElementById('musica');
-    audio.play();
-}
+function abrirInvitacion() {
+    const contenido = document.getElementById("contenido");
+    const cover = document.getElementById("cover");
+    const musica = document.getElementById("musica");
 
-function toggleMusica() {
-    let audio = document.getElementById('musica');
-    let icono = document.getElementById('icono-musica');
-    if (audio.paused) {
-        audio.play();
-        icono.classList.replace('fa-play', 'fa-pause');
-    } else {
-        audio.pause();
-        icono.classList.replace('fa-pause', 'fa-play');
+    // Mostramos el contenido
+    contenido.style.display = "block";
+    
+    // Desvanecemos la portada
+    cover.style.opacity = "0";
+    setTimeout(() => {
+        cover.style.visibility = "hidden";
+        iniciarScroll(); // Activamos el efecto scroll
+    }, 1200);
+
+    // Intentamos reproducir la música
+    if (musica) {
+        // Añadimos un pequeño delay para que la transición sea suave
+        setTimeout(() => {
+            musica.play().catch(e => console.log("Audio en espera de interacción."));
+        }, 500);
     }
 }
 
-// Lógica del Contador
-const fechaNoah = new Date("June 16, 2026 13:00:00").getTime();
+/* CONFIGURACIÓN DE LA FECHA (Corregida a 2026) */
+const fechaEventoString = "June 16, 2026 12:00:00"; // Corregido según tu plan original
+const fechaEvento = new Date(fechaEventoString).getTime();
 
-setInterval(function() {
+function actualizarContador() {
     const ahora = new Date().getTime();
-    const d = fechaNoah - ahora;
+    const diferencia = fechaEvento - ahora;
 
-    const dias = Math.floor(d / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const mins = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
-    const segs = Math.floor((d % (1000 * 60)) / 1000);
+    const opciones = { day: 'numeric', month: 'long', year: 'numeric' };
+    const fechaLegible = new Date(fechaEventoString).toLocaleDateString('es-ES', opciones);
+    
+    // Verificamos que el elemento exista antes de escribir para evitar errores en consola
+    const txtFecha = document.getElementById("fecha-texto");
+    if(txtFecha) txtFecha.innerHTML = fechaLegible;
 
-    document.getElementById("timer").innerHTML = `
-        <div class="timer-box"><div class="num">${dias}</div><div class="lab">DÍAS</div></div>
-        <div class="timer-box"><div class="num">${horas}</div><div class="lab">HORAS</div></div>
-        <div class="timer-box"><div class="num">${mins}</div><div class="lab">MINS</div></div>
-        <div class="timer-box"><div class="num">${segs}</div><div class="lab">SEGS</div></div>
+    const cuentaElement = document.getElementById("cuenta");
+    if (!cuentaElement) return;
+
+    if (diferencia <= 0) {
+        cuentaElement.innerHTML = "¡Es hoy!";
+        return;
+    }
+
+    const d = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+    cuentaElement.innerHTML = `
+        ${d}d | ${h.toString().padStart(2, '0')}h | 
+        ${m.toString().padStart(2, '0')}m | 
+        ${s.toString().padStart(2, '0')}s
     `;
-}, 1000);
+}
+
+setInterval(actualizarContador, 1000);
+actualizarContador();
+
+/* ANIMACIONES SCROLL */
+function iniciarScroll() {
+    const elementos = document.querySelectorAll(".animar");
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elementos.forEach(el => observer.observe(el));
+}
