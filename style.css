@@ -1,0 +1,94 @@
+:root {
+    --menta: #e2f3e5;
+    --oliva: #5B6346;
+    --dorado: #d4af37;
+    --blanco: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--menta);
+    color: #444;
+}
+
+.hide { display: none; }
+.show { display: block; animation: fadeIn 1.5s; }
+
+/* ESTILO SOBRE (INTRO) */
+.intro-sobre {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--menta);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.dino-sello { width: 150px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); }
+
+/* CONTADOR EN CAJITAS */
+.contador-grid {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.timer-box {
+    background: var(--blanco);
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 60px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.timer-box .num { font-weight: 600; font-size: 1.2rem; color: var(--oliva); }
+.timer-box .lab { font-size: 0.6rem; letter-spacing: 1px; color: #888; }
+
+/* BOTÓN MÚSICA FLOTANTE */
+.btn-musica {
+    position: fixed;
+    top: 20px; right: 20px;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--blanco);
+    border: none;
+    z-index: 1500;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    color: var(--oliva);
+}
+
+/* SECCIONES ESTILO BODA */
+.seccion-blanca {
+    background: var(--blanco);
+    margin: 20px;
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.tangerine {
+    font-family: 'Tangerine', cursive;
+    font-size: 5rem;
+    margin: 0;
+    color: var(--oliva);
+}
+
+.icon-it { width: 60px; margin-bottom: 10px; }
+.btn-locacion {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 20px;
+    border: 1px solid var(--oliva);
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--oliva);
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
